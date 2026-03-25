@@ -7,17 +7,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/lucide@latest"></script>
+
 <style>
   :root {
-    /* Nueva paleta: Minimalista & Profesional */
     --bg: #f8fafc;
     --bg-surface: #ffffff;
     --text-main: #0f172a;
     --text-muted: #64748b;
-    --accent: #4f46e5; /* Indigo */
+    --accent: #4f46e5;
     --accent-hover: #4338ca;
     --border: #e2e8f0;
-    
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
   }
@@ -84,9 +84,6 @@
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--accent); }
-
-  /* ── Ocultamos los blobs del diseño anterior ── */
-  .hero-blob { display: none; }
 
   /* ── HERO ── */
   #hero {
@@ -156,27 +153,11 @@
     transition: all 0.2s;
   }
 
-  .btn-primary {
-    background: var(--accent);
-    color: #ffffff;
-    border: 1px solid var(--accent);
-  }
-  .btn-primary:hover { 
-    background: var(--accent-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
-  }
+  .btn-primary { background: var(--accent); color: #ffffff; border: 1px solid var(--accent); }
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2); }
 
-  .btn-outline {
-    background: transparent;
-    color: var(--text-main);
-    border: 1px solid var(--border);
-    background: var(--bg-surface);
-  }
-  .btn-outline:hover { 
-    border-color: var(--text-main); 
-    transform: translateY(-2px);
-  }
+  .btn-outline { background: var(--bg-surface); color: var(--text-main); border: 1px solid var(--border); }
+  .btn-outline:hover { border-color: var(--text-main); transform: translateY(-2px); }
 
   .hero-scroll {
     position: absolute;
@@ -194,308 +175,83 @@
   /* ── SECTIONS ── */
   section { padding: 120px 60px; position: relative; max-width: 1200px; margin: 0 auto; }
 
-  .section-label {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--accent);
-    margin-bottom: 16px;
-  }
-
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 24px;
-    letter-spacing: -0.02em;
-  }
-
-  .section-desc {
-    color: var(--text-muted);
-    max-width: 600px;
-    margin-bottom: 60px;
-    font-size: 1.1rem;
-  }
+  .section-label { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--accent); margin-bottom: 16px; }
+  .section-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.02em; }
+  .section-desc { color: var(--text-muted); max-width: 600px; margin-bottom: 60px; font-size: 1.1rem; }
 
   /* ── ABOUT ── */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .about-text p {
-    color: var(--text-muted);
-    margin-bottom: 24px;
-    font-size: 1.1rem;
-  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .about-text p { color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; }
   .about-text p strong { color: var(--text-main); font-weight: 600; }
 
-  .about-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 48px;
-  }
-
-  .stat-box {
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 24px;
-    text-align: center;
-  }
-  .stat-num {
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+  .stat-box { background: var(--bg-surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; text-align: center; }
+  .stat-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 8px; }
   .stat-label { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
 
   .about-right { display: flex; flex-direction: column; gap: 16px; }
-
-  .info-card {
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 24px;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    transition: all 0.2s;
-  }
-  .info-card:hover { 
-    border-color: var(--accent); 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  }
-
-  .info-icon {
-    width: 48px; height: 48px;
-    background: rgba(79, 70, 229, 0.1);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    flex-shrink: 0;
-  }
-
+  .info-card { background: var(--bg-surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; display: flex; align-items: flex-start; gap: 16px; transition: all 0.2s; }
+  .info-card:hover { border-color: var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .info-icon { width: 48px; height: 48px; background: rgba(79, 70, 229, 0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--accent); flex-shrink: 0; }
   .info-content h4 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; color: var(--text-main); }
   .info-content p { font-size: 0.95rem; color: var(--text-muted); }
 
   /* ── SKILLS ── */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-  }
-
-  .skill-category {
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 32px;
-  }
-
-  .skill-cat-title {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--text-main);
-  }
-
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .skill-category { background: var(--bg-surface); border: 1px solid var(--border); border-radius: 8px; padding: 32px; }
+  .skill-cat-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; color: var(--text-main); }
   .skill-pills { display: flex; flex-wrap: wrap; gap: 10px; }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    font-size: 0.9rem;
-    color: var(--text-main);
-    font-weight: 500;
-    transition: all 0.2s;
-  }
+  .pill { display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; font-size: 0.9rem; color: var(--text-main); font-weight: 500; transition: all 0.2s; }
   .pill:hover { border-color: var(--accent); color: var(--accent); }
   .pill img { width: 18px; height: 18px; }
 
   /* ── PROJECTS ── */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 32px;
-  }
-
-  .project-card {
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: all 0.3s;
-    display: flex;
-    flex-direction: column;
-  }
-  .project-card:hover { 
-    transform: translateY(-8px); 
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
-    border-color: var(--border);
-  }
-
-  .project-thumb {
-    height: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-  }
-
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
+  .project-card { background: var(--bg-surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: all 0.3s; display: flex; flex-direction: column; }
+  .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--border); }
+  
+  .project-thumb { height: 200px; display: flex; align-items: center; justify-content: center; background: rgba(79, 70, 229, 0.03); border-bottom: 1px solid var(--border); color: var(--accent); }
   .project-body { padding: 32px; flex: 1; display: flex; flex-direction: column; }
-
   .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
-  .project-tag {
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 4px;
-    background: rgba(79, 70, 229, 0.1);
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
+  .project-tag { font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 4px; background: rgba(79, 70, 229, 0.1); color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
   .project-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
   .project-desc { font-size: 1rem; color: var(--text-muted); line-height: 1.6; flex: 1; margin-bottom: 24px; }
-
   .project-links { display: flex; gap: 12px; }
-
-  .link-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
+  
+  .link-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 4px; font-size: 0.9rem; font-weight: 500; text-decoration: none; transition: all 0.2s; }
   .link-github { background: var(--bg); color: var(--text-main); border: 1px solid var(--border); }
   .link-github:hover { border-color: var(--text-main); }
   .link-demo { background: var(--text-main); color: #fff; }
 
   /* ── EXPERIENCE ── */
   .timeline { max-width: 800px; position: relative; }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 24px;
-    top: 8px;
-    bottom: 0;
-    width: 2px;
-    background: var(--border);
-  }
-
-  .timeline-item {
-    padding-left: 70px;
-    position: relative;
-    margin-bottom: 48px;
-  }
-
-  .timeline-dot {
-    position: absolute;
-    left: 17px;
-    top: 6px;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: var(--bg-surface);
-    border: 3px solid var(--accent);
-  }
-
-  .timeline-date {
-    font-family: var(--font-display);
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
-
+  .timeline::before { content: ''; position: absolute; left: 24px; top: 8px; bottom: 0; width: 2px; background: var(--border); }
+  .timeline-item { padding-left: 70px; position: relative; margin-bottom: 48px; }
+  .timeline-dot { position: absolute; left: 17px; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg-surface); border: 3px solid var(--accent); }
+  .timeline-date { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
   .timeline-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
   .timeline-org { font-size: 1rem; color: var(--text-main); font-weight: 500; margin-bottom: 12px; }
   .timeline-desc { font-size: 1rem; color: var(--text-muted); line-height: 1.6; }
 
   /* ── CONTACT ── */
   #contact { text-align: center; }
-
-  .contact-card {
-    max-width: 700px;
-    margin: 0 auto;
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 60px 48px;
-  }
-
+  .contact-card { max-width: 700px; margin: 0 auto; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 8px; padding: 60px 48px; }
   .contact-card p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 40px; }
-
   .contact-links { display: flex; flex-direction: column; gap: 16px; }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 28px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    text-decoration: none;
-    color: var(--text-main);
-    font-size: 1rem;
-    font-weight: 500;
-    transition: all 0.2s;
-  }
-  .contact-link:hover { 
-    border-color: var(--accent); 
-    background: #ffffff;
-    transform: translateX(4px); 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-  }
-
+  
+  .contact-link { display: flex; align-items: center; justify-content: space-between; padding: 20px 28px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--text-main); font-size: 1rem; font-weight: 500; transition: all 0.2s; }
+  .contact-link:hover { border-color: var(--accent); background: #ffffff; transform: translateX(4px); box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
   .contact-link-left { display: flex; align-items: center; gap: 16px; }
+  .contact-link-left i { color: var(--accent); }
   .contact-arrow { color: var(--accent); font-size: 1.2rem; transition: transform 0.2s;}
   .contact-link:hover .contact-arrow { transform: translateX(4px); }
 
   /* ── FOOTER ── */
-  footer {
-    padding: 40px 60px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  footer { padding: 40px 60px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; color: var(--text-muted); max-width: 1200px; margin: 0 auto; }
   footer a { color: var(--accent); text-decoration: none; font-weight: 500;}
 
   /* ── FADE IN ANIMATION ── */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
 
   /* ── RESPONSIVE ── */
@@ -536,8 +292,8 @@
   </p>
 
   <div class="hero-actions">
-    <a href="#projects" class="btn btn-primary">View my work &rarr;</a>
-    <a href="#contact" class="btn btn-outline">Let's talk</a>
+    <a href="#projects" class="btn btn-primary"><i data-lucide="eye" width="18" height="18"></i> View my work</a>
+    <a href="#contact" class="btn btn-outline"><i data-lucide="message-square" width="18" height="18"></i> Let's talk</a>
   </div>
 
   <div class="hero-scroll">
@@ -558,8 +314,7 @@
 
       <div class="about-stats">
         <div class="stat-box">
-          <div class="stat-num">26+</div>
-          <div class="stat-label">Repositories</div>
+          <div class="stat-num" id="github-repos-count">26+</div> <div class="stat-label">Repositories</div>
         </div>
         <div class="stat-box">
           <div class="stat-num">5+</div>
@@ -578,28 +333,28 @@
 
     <div class="about-right fade-up">
       <div class="info-card">
-        <div class="info-icon">🎓</div>
+        <div class="info-icon"><i data-lucide="graduation-cap"></i></div>
         <div class="info-content">
           <h4>Systems Engineering</h4>
           <p>Currently studying — university projects and real team experience</p>
         </div>
       </div>
       <div class="info-card">
-        <div class="info-icon">🎨</div>
+        <div class="info-icon"><i data-lucide="pen-tool"></i></div>
         <div class="info-content">
           <h4>UX-first mindset</h4>
           <p>I design before I code. Figma wireframes → component → production</p>
         </div>
       </div>
       <div class="info-card">
-        <div class="info-icon">⚡</div>
+        <div class="info-icon"><i data-lucide="zap"></i></div>
         <div class="info-content">
           <h4>Full-stack exposure</h4>
           <p>React, Vue, Angular in the front — Node.js, PHP, Python in the back</p>
         </div>
       </div>
       <div class="info-card">
-        <div class="info-icon">🌎</div>
+        <div class="info-icon"><i data-lucide="globe"></i></div>
         <div class="info-content">
           <h4>Remote-ready</h4>
           <p>Based in Ecuador · Spanish & English · Open to global opportunities</p>
@@ -624,47 +379,26 @@
         <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"/>TypeScript</span>
         <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/>React</span>
         <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"/>Next.js</span>
-        <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"/>Vue.js</span>
-        <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"/>Angular</span>
-        <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"/>Tailwind</span>
       </div>
     </div>
-
     <div class="skill-category">
       <div class="skill-cat-title">Backend & DB</div>
       <div class="skill-pills">
         <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"/>Node.js</span>
-        <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"/>Express</span>
         <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"/>PHP</span>
         <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/>Python</span>
-        <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"/>Django</span>
-        <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"/>Flask</span>
         <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"/>MySQL</span>
         <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"/>PostgreSQL</span>
       </div>
     </div>
-
     <div class="skill-category">
-      <div class="skill-cat-title">Design & UX</div>
+      <div class="skill-cat-title">Design & DevOps</div>
       <div class="skill-pills">
         <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"/>Figma</span>
-        <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg"/>Adobe XD</span>
-        <span class="pill">Wireframing</span>
-        <span class="pill">Prototyping</span>
-        <span class="pill">User Research</span>
-        <span class="pill">Design Systems</span>
-      </div>
-    </div>
-
-    <div class="skill-category">
-      <div class="skill-cat-title">Tools & DevOps</div>
-      <div class="skill-pills">
         <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"/>Git</span>
         <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"/>Docker</span>
-        <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"/>VS Code</span>
-        <span class="pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"/>Linux</span>
+        <span class="pill">Wireframing</span>
         <span class="pill">REST APIs</span>
-        <span class="pill">MVC</span>
       </div>
     </div>
   </div>
@@ -672,59 +406,11 @@
 
 <section id="projects">
   <div class="section-label">Work</div>
-  <h2 class="section-title">Featured projects.</h2>
-  <p class="section-desc">A selection of things I've built — more available on GitHub.</p>
+  <h2 class="section-title">Latest from GitHub.</h2>
+  <p class="section-desc">Estos proyectos se cargan automáticamente desde mi perfil de GitHub.</p>
 
-  <div class="projects-grid fade-up">
-    <div class="project-card">
-      <div class="project-thumb">🔐</div>
-      <div class="project-body">
-        <div class="project-tags">
-          <span class="project-tag">Frontend</span>
-          <span class="project-tag">PHP</span>
-        </div>
-        <h3 class="project-title">VisualLogin</h3>
-        <p class="project-desc">Custom login system with a polished visual UI. Built with MVC architecture using HTML, CSS, JavaScript and PHP with jQuery EasyUI components.</p>
-        <div class="project-links">
-          <a href="https://github.com/Juanlpa/VisualLogin" target="_blank" class="link-btn link-github">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-thumb">⚙️</div>
-      <div class="project-body">
-        <div class="project-tags">
-          <span class="project-tag">SOA</span>
-          <span class="project-tag">Docker</span>
-        </div>
-        <h3 class="project-title">Proyecto SOA</h3>
-        <p class="project-desc">Service-oriented architecture web application containerized with Docker. Full MVC structure with PHP backend and custom CSS frontend.</p>
-        <div class="project-links">
-          <a href="https://github.com/Juanlpa/Proyecto_SOA" target="_blank" class="link-btn link-github">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-thumb">🚀</div>
-      <div class="project-body">
-        <div class="project-tags">
-          <span class="project-tag">Coming soon</span>
-        </div>
-        <h3 class="project-title">Next project</h3>
-        <p class="project-desc">Currently working on new projects using React, Next.js and Figma. Stay tuned — or reach out if you want to collaborate on something great.</p>
-        <div class="project-links">
-          <a href="https://github.com/Juanlpa" target="_blank" class="link-btn link-github">See GitHub &rarr;</a>
-        </div>
-      </div>
-    </div>
+  <div class="projects-grid fade-up" id="github-projects-container">
+    <p style="color: var(--text-muted);">Cargando repositorios...</p>
   </div>
 </section>
 
@@ -740,21 +426,12 @@
       <div class="timeline-org">Universidad · Ecuador</div>
       <div class="timeline-desc">Studying software architecture, web development, databases and UX design. Active participation in team projects using React, Vue, Angular, Python, Node.js and PHP.</div>
     </div>
-
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-date">Team projects</div>
       <div class="timeline-title">Frontend Developer</div>
       <div class="timeline-org">Collaborative &amp; university teams</div>
       <div class="timeline-desc">Built and contributed to web applications in team environments. Responsibilities included UI development, UX design decisions, REST API integration and containerization with Docker.</div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">Ongoing</div>
-      <div class="timeline-title">Open to opportunities</div>
-      <div class="timeline-org">Freelance / Full-time</div>
-      <div class="timeline-desc">Available for frontend development projects, UX/UI design work, or full-stack collaborations. Remote-friendly and open to international clients.</div>
     </div>
   </div>
 </section>
@@ -768,21 +445,21 @@
     <div class="contact-links">
       <a href="mailto:tu@email.com" class="contact-link">
         <div class="contact-link-left">
-          <span style="font-size: 1.2rem;">✉️</span> tu@email.com
+          <i data-lucide="mail"></i> tu@email.com
         </div>
-        <span class="contact-arrow">&rarr;</span>
+        <i data-lucide="arrow-right" class="contact-arrow"></i>
       </a>
       <a href="https://github.com/Juanlpa" target="_blank" class="contact-link">
         <div class="contact-link-left">
-          <span style="font-size: 1.2rem;">💻</span> github.com/Juanlpa
+          <i data-lucide="github"></i> github.com/Juanlpa
         </div>
-        <span class="contact-arrow">&rarr;</span>
+        <i data-lucide="arrow-right" class="contact-arrow"></i>
       </a>
       <a href="https://linkedin.com/in/TU_USUARIO" target="_blank" class="contact-link">
         <div class="contact-link-left">
-          <span style="font-size: 1.2rem;">💼</span> LinkedIn
+          <i data-lucide="linkedin"></i> LinkedIn
         </div>
-        <span class="contact-arrow">&rarr;</span>
+        <i data-lucide="arrow-right" class="contact-arrow"></i>
       </a>
     </div>
   </div>
@@ -794,13 +471,75 @@
 </footer>
 
 <script>
-  // Fade-up on scroll
+  // 1. Iniciar íconos estáticos iniciales
+  lucide.createIcons();
+
+  // 2. Fetch de datos dinámicos desde GitHub
+  async function fetchGitHubData() {
+    const username = 'Juanlpa';
+    
+    try {
+      // Obtener conteo de repositorios
+      const userRes = await fetch(`https://api.github.com/users/${username}`);
+      const userData = await userRes.json();
+      
+      if (userData.public_repos !== undefined) {
+        document.getElementById('github-repos-count').innerText = userData.public_repos + '+';
+      }
+
+      // Obtener los 3 repositorios actualizados más recientemente
+      const reposRes = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=3`);
+      const reposData = await reposRes.json();
+      
+      const projectsContainer = document.getElementById('github-projects-container');
+      projectsContainer.innerHTML = ''; // Limpiar mensaje de "cargando"
+
+      reposData.forEach(repo => {
+        const languageTag = repo.language ? `<span class="project-tag">${repo.language}</span>` : '';
+        const description = repo.description || 'Sin descripción disponible para este repositorio.';
+        const demoLink = repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="link-btn link-demo"><i data-lucide="external-link" width="16" height="16"></i> Demo</a>` : '';
+
+        // Construir la tarjeta (Card) inyectando el HTML
+        const cardHTML = `
+          <div class="project-card">
+            <div class="project-thumb">
+              <i data-lucide="folder-git-2" stroke-width="1.5" width="64" height="64"></i>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">${languageTag}</div>
+              <h3 class="project-title">${repo.name}</h3>
+              <p class="project-desc">${description}</p>
+              <div class="project-links">
+                <a href="${repo.html_url}" target="_blank" class="link-btn link-github">
+                  <i data-lucide="github" width="16" height="16"></i> GitHub
+                </a>
+                ${demoLink}
+              </div>
+            </div>
+          </div>
+        `;
+        projectsContainer.innerHTML += cardHTML;
+      });
+
+      // Renderizar los íconos de Lucide en las nuevas tarjetas que acabamos de inyectar
+      lucide.createIcons();
+
+    } catch (error) {
+      console.error('Error al cargar datos de GitHub:', error);
+      document.getElementById('github-projects-container').innerHTML = '<p>Error al cargar los proyectos. Por favor visita mi GitHub directamente.</p>';
+    }
+  }
+
+  // Ejecutar la función
+  fetchGitHubData();
+
+  // 3. Fade-up al hacer scroll
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // Active nav link
+  // 4. Cambiar color del link en el nav al hacer scroll
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
